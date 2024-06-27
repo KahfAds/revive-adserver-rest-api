@@ -1,0 +1,1879 @@
+{
+	"info": {
+		"_postman_id": "565839a9-0a2e-4531-a66d-e4d5987eefd0",
+		"name": "Revive Adserver Rest Apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Publisher",
+			"item": [
+				{
+					"name": "Publisher Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/publishers/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"publishers",
+								"1"
+							]
+						},
+						"description": "`/publishers/{publisher-id}`\nPublisher details by Id\n\n`publisher-id` must be integer value\n\nIf publisher id is incorrect or does not exists API will return `404 Not Found` error"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Zones",
+			"item": [
+				{
+					"name": "Unlink Banner From Zone",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/zones/2/banners/2/unlink",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"zones",
+								"2",
+								"banners",
+								"2",
+								"unlink"
+							]
+						},
+						"description": "`/zones/{zone-id}/banners/{banner-id}`\nUnlink banner from zone\n\n`zone-id` and `banner-id` must be integer value incorrect value might throw `500 - HttpBadRequestError`\n\nMake sure zone-id and banner-id should exist before linking with each other"
+					},
+					"response": []
+				},
+				{
+					"name": "Unlink Campaign From Zone",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/zones/2/campaigns/2/unlink",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"zones",
+								"2",
+								"campaigns",
+								"2",
+								"unlink"
+							]
+						},
+						"description": "`/zones/{zone-id}/banners/{banner-id}`\nUnlink banner from zone\n\n`zone-id` and `banner-id` must be integer value incorrect value might throw `500 - HttpBadRequestError`\n\nMake sure zone-id and banner-id should exist before linking with each other"
+					},
+					"response": []
+				},
+				{
+					"name": "Link Banner With Zone",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/zones/2/banners/2/link",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"zones",
+								"2",
+								"banners",
+								"2",
+								"link"
+							]
+						},
+						"description": "`/zones/{zone-id}/banners/{banner-id}`\nLink banner to zone\n\n`zone-id` and `banner-id` must be integer value incorrect value might throw `500 - HttpBadRequestError`\n\nMake sure zone-id and banner-id should exist before linking with each other"
+					},
+					"response": []
+				},
+				{
+					"name": "Link Campaign With Zone",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/zones/2/campaigns/2/link",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"zones",
+								"2",
+								"campaigns",
+								"2",
+								"link"
+							]
+						},
+						"description": "`/zones/{zone-id}/banners/{banner-id}`\nLink banner to zone\n\n`zone-id` and `banner-id` must be integer value incorrect value might throw `500 - HttpBadRequestError`\n\nMake sure zone-id and banner-id should exist before linking with each other"
+					},
+					"response": []
+				},
+				{
+					"name": "Zone list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/publishers/1/zones",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"publishers",
+								"1",
+								"zones"
+							]
+						},
+						"description": "`/publishers/{publisher-id}/zones`\nFetch zones list by publisher id\n\n`publisher-id` must be an integer value\n\nIn-case of incorrect publisher-id API will throw `500 - HttpInternalServerError`"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Banners",
+			"item": [
+				{
+					"name": "Banners",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"campaignId\": 4,\n    \"bannerName\": \"abcd\",\n    \"storageType\": \"url\",\n    \"fileName\": \"ae851d8ca9f933739a7545533ddec623.webp\",\n    \"imageURL\": \"http://filename.com\",\n    \"htmlTemplate\": \"\",\n    \"width\": 350,\n    \"height\": 73,\n    \"weight\": 0,\n    \"target\": \"http://johndeer.com\",\n    \"url\": \"\",\n    \"bannerText\": \"\",\n    \"status\": \"\",\n    \"adserver\": \"\",\n    \"transparent\": \"\",\n    \"capping\": 0,\n    \"sessionCapping\": 0,\n    \"block\": 0,\n    \"comments\": \"\",\n    \"alt\": \"\",\n    \"append\": \"\",\n    \"prepend\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/banners",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"banners"
+							]
+						},
+						"description": "`/banners`\nAdd new banner\n\n`campaignId`, `bannerName` are mandatory fields\n\n`storageType` values `[html, txt, sql, web, url]`\n`url` use this value if have image on external source\n\n`web` if want to store file on revive ad server\n`sql` if want to store file on revive ad server database. this is not recommended."
+					},
+					"response": []
+				},
+				{
+					"name": "Banners",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"campaignId\": \"\",\n    \"bannerName\": \"\",\n    \"storageType\": \"\",\n    \"fileName\": \"\",\n    \"imageURL\": \"\",\n    \"htmlTemplate\": \"\",\n    \"width\": \"\",\n    \"height\": \"\",\n    \"weight\": \"\",\n    \"target\": \"\",\n    \"url\": \"\",\n    \"bannerText\": \"\",\n    \"status\": \"\",\n    \"adserver\": \"\",\n    \"transparent\": \"\",\n    \"capping\": \"\",\n    \"sessionCapping\": \"\",\n    \"block\": \"\",\n    \"comments\": \"\",\n    \"alt\": \"\",\n    \"append\": \"\",\n    \"prepend\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/banners/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"banners",
+								"1"
+							]
+						},
+						"description": "`/banners/{banner-id}`\nUpdate existing banner details by id\n\n`banner-id` must be integer value\n\nif `banner-id` is incorrect or does not exists it will return `404 Not Found` error"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/banners/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"banners",
+								"1"
+							]
+						},
+						"description": "`/banners/{banner-id}`\nFetch banner details by banner id\n\n`banner-id` must be integer value\n\nif `banner-id` is incorrect or does not exists API will return `404 Not Found` error"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner Delivery Options",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/banners/2/targeting",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"banners",
+								"2",
+								"targeting"
+							]
+						},
+						"description": "`/banners/{banner-id}/targeting`\nFetch banner delivery options by banner id\n\nacls, targeting, delivery limits, delivery options are same terms.\n\n`banner-id` must be integer value\n\nif `banner-id` is incorrect or does not exists API will return `404 Not Found` error"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Banner Delivery Options",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"logical\": \"and\",\n        \"type\": \"deliveryLimitations:Client:Language\",\n        \"comparison\": \"=~\",\n        \"data\": \"hi|en-us\"\n    },\n    {\n        \"logical\": \"and\",\n        \"type\": \"deliveryLimitations:Site:Variable\",\n        \"comparison\": \"==\",\n        \"data\": \"categoryId|123\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/banners/2/targeting",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"banners",
+								"2",
+								"targeting"
+							]
+						},
+						"description": "`/banners/{banner-id}/targeting`\nAdd banner delivery options by banner id\n\nacls, targeting, delivery limits, delivery options are same terms.\n\n`banner-id` must be integer value\n\nif `banner-id` is incorrect or does not exists API will return `404 Not Found` error\n\n1. `logical` values are `[and, or]`\n\n2. `type` value must starts with . `deliveryLimitations:`\n`Client`, `Site`, `Geo`, `Source` are values of type\n\n3. `comparison` values are `[==, =~, !=, !=~, <, >, <=, >=]`\n\n4. `data` value should be string for multiple value use `|` symbol\n\ne.g\n```\n{\n            \"logical\": \"and\",\n            \"type\": \"deliveryLimitations:Client:Language\",\n            \"comparison\": \"=~\",\n            \"data\": \"hi\"\n        }\n```\n\nFor more details check below link\nhttps://revive-adserver.atlassian.net/wiki/spaces/DOCS/pages/721009/Delivery+Options\n\nLink to How custom variables will work\nhttps://revive-adserver.atlassian.net/wiki/spaces/DOCS/pages/721518/Tag+Variables"
+					},
+					"response": []
+				},
+				{
+					"name": "Banners",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/campaigns/1/banners",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"campaigns",
+								"1",
+								"banners"
+							]
+						},
+						"description": "`/campaigns/{campaign-id}/banners`\nFetch campaign banners by campaign id\n\n`campaign-id` must be integer value\n\nif `campaign-id` is incorrect or does not exists API will return `404 Not Found` error"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Analytics",
+			"item": [
+				{
+					"name": "Agency",
+					"item": [
+						{
+							"name": "Agency Daily Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/agencies/3/statistics/daily?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"agencies",
+										"3",
+										"statistics",
+										"daily"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Agency Hourly Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/agencies/2/statistics/hourly?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"agencies",
+										"2",
+										"statistics",
+										"hourly"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Agency Campaign Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/agencies/2/statistics/campaign?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"agencies",
+										"2",
+										"statistics",
+										"campaign"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Agency Banner Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/agencies/2/statistics/banner?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"agencies",
+										"2",
+										"statistics",
+										"banner"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Agency Zone Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/agencies/2/statistics/zone?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"agencies",
+										"2",
+										"statistics",
+										"zone"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Agency Publisher Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/agencies/2/statistics/publisher?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"agencies",
+										"2",
+										"statistics",
+										"publisher"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Advertiser",
+					"item": [
+						{
+							"name": "Advertiser Daily Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/advertisers/2/statistics/daily?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"advertisers",
+										"2",
+										"statistics",
+										"daily"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Advertiser Hourly Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/advertisers/2/statistics/hourly?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"advertisers",
+										"2",
+										"statistics",
+										"hourly"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Advertiser Campaign Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/advertisers/2/statistics/campaign?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"advertisers",
+										"2",
+										"statistics",
+										"campaign"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Advertiser Zone Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/advertisers/2/statistics/zone?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"advertisers",
+										"2",
+										"statistics",
+										"zone"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Advertiser Banner Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/advertisers/2/statistics/banner?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"advertisers",
+										"2",
+										"statistics",
+										"banner"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Advertiser Publisher Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/advertisers/2/statistics/publisher?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"advertisers",
+										"2",
+										"statistics",
+										"publisher"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Campaign",
+					"item": [
+						{
+							"name": "Campaign Daily Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/campaigns/2/statistics/daily?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"campaigns",
+										"2",
+										"statistics",
+										"daily"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Campaign Hourly Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/campaigns/2/statistics/hourly?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"campaigns",
+										"2",
+										"statistics",
+										"hourly"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Campaign Conversion Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/campaigns/2/statistics/conversion?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"campaigns",
+										"2",
+										"statistics",
+										"conversion"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Campagin Zone Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/campaigns/2/statistics/zone?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"campaigns",
+										"2",
+										"statistics",
+										"zone"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Campaign Banner Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/campaigns/2/statistics/banner?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"campaigns",
+										"2",
+										"statistics",
+										"banner"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Campaign Publisher Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/campaigns/2/statistics/publisher?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"campaigns",
+										"2",
+										"statistics",
+										"publisher"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Publisher",
+					"item": [
+						{
+							"name": "Publisher Daily Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/publishers/2/statistics/daily?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"publishers",
+										"2",
+										"statistics",
+										"daily"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Publisher Hourly Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/publishers/2/statistics/hourly?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"publishers",
+										"2",
+										"statistics",
+										"hourly"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Publisher Advertiser Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/publishers/2/statistics/advertiser?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"publishers",
+										"2",
+										"statistics",
+										"advertiser"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Publisher Zone Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/publishers/2/statistics/zone?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"publishers",
+										"2",
+										"statistics",
+										"zone"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Publisher Banner Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/publishers/2/statistics/banner?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"publishers",
+										"2",
+										"statistics",
+										"banner"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Publisher Campaign Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/publishers/2/statistics/campaign?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"publishers",
+										"2",
+										"statistics",
+										"campaign"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "Banner Daily Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/banners/2/statistics/daily?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"banners",
+										"2",
+										"statistics",
+										"daily"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Banner Hourly Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/banners/2/statistics/hourly?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"banners",
+										"2",
+										"statistics",
+										"hourly"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Banner Zone Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/banners/2/statistics/zone?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"banners",
+										"2",
+										"statistics",
+										"zone"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						},
+						{
+							"name": "Banner Publisher Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sessionID",
+										"value": "{{SESSION_ID}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{API_URL}}/banners/2/statistics/publisher?start-date=2024-03-01&end-date=2024-03-31",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"banners",
+										"2",
+										"statistics",
+										"publisher"
+									],
+									"query": [
+										{
+											"key": "start-date",
+											"value": "2024-03-01"
+										},
+										{
+											"key": "end-date",
+											"value": "2024-03-31"
+										}
+									]
+								},
+								"description": "`start-date` and `end-date` are optional parameters"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Agencies",
+			"item": [
+				{
+					"name": "Agency Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/agencies/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"agencies",
+								"1"
+							]
+						},
+						"description": "`/agencies/{agency-id}`\nAgency details by Id\n\n`agency-id` must be integer value\n\nIf agency id is incorrect or does not exists API will return `404 Not Found` error"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Advertisers",
+			"item": [
+				{
+					"name": "Advertiser Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/advertisers/2",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"advertisers",
+								"2"
+							]
+						},
+						"description": "`/advertisers/{advertiser-id}`\nAdvertiser details by Agency Id\n\n`advertiser-id` must be integer value\n\nIf advertiser id is incorrect or does not exists API will return `404 Not Found` error"
+					},
+					"response": []
+				},
+				{
+					"name": "Advertisers",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/advertisers/9",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"advertisers",
+								"9"
+							]
+						},
+						"description": "`/advertisers/{advertiser-id}`\nDelete Advertiser details by Agency Id\n\n`advertiser-id` must be integer value\n\nIf advertiser id is incorrect or does not exists API will return `404 Not Found` error"
+					},
+					"response": []
+				},
+				{
+					"name": "Advertisers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/agencies/1/advertisers",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"agencies",
+								"1",
+								"advertisers"
+							]
+						},
+						"description": "`/agencies/{agency-id}/advertisers`\nAdvertiser list by Agency Id\n\n`agency-id` must be integer value"
+					},
+					"response": []
+				},
+				{
+					"name": "Advertisers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"agencyId\":2,\n    \"advertiserName\":\"Kisan Gateway 2\",\n    \"contactName\":\"\",\n    \"emailAddress\":null,\n    \"username\":\"\",\n    \"password\":\"\",\n    \"comments\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/advertisers",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"advertisers"
+							]
+						},
+						"description": "`/advertisers`\nCreate new advertiser\n\n`advertiserName` is mandatory field\n\n`agencyId`, `contactName`, `emailAddress`, `username`, `password`, `comments` are optional fields\n\n`agencyId` can be should if want to create advertiser for specific Agency in case of multiple agencies are available"
+					},
+					"response": []
+				},
+				{
+					"name": "Advertisers",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"advertiserName\": \"Kisan Gateway Advertiser\",\n    \"contactName\": \"KG Advertiser\",\n    \"emailAddress\": \"kg@test.com\",\n    \"comments\": \"Testing update\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/advertisers/8",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"advertisers",
+								"8"
+							]
+						},
+						"description": "`/advertisers/{advertiser-id}`\nUpdate existing advertiser details by id\n\n`advertiserName` are mandatory field\n\n`agencyId`, `contactName`, `emailAddress`, `username`, `password`, `comments` are optional fields"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Campaigns",
+			"item": [
+				{
+					"name": "Campaigns",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"advertiserId\": 1,\n    \"campaignName\": \"John Dear Testing 2\",\n    \"startDate\": \"2024-05-01\",\n    \"endDate\": \"2024-06-03\",\n    \"impressions\": 100,\n    \"clicks\": 10,\n    \"priority\": 1,\n    \"weight\": 0,\n    \"targetImpressions\": 0,\n    \"targetClicks\": 15,\n    \"targetConversions\": 0,\n    \"revenue\": 0.0,\n    \"revenueType\": 1,\n    \"capping\": 0,\n    \"sessionCapping\": 0,\n    \"block\": 0,\n    \"comments\": \"some comments\",\n    \"viewWindow\": 0,\n    \"clickWindow\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/campaigns",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"campaigns"
+							]
+						},
+						"description": "`/campaigns`\nCreate new campaigns\n\n`advertiserId`, `campaignName` is mandatory field\n\n`startDate`, `endDate`, `impressions`, `clicks`, `priority`, `weights`, `tragetImpressions`,`targetClicks`, `targetConversions`, `revenue`,`revenueType`, `capping`, `sessionCapping`, `block`, `comments`, `viewWindow`, `clickWindow` are optional fields\n\n`startDate` and `endDate` datetime format `ISO_DATE_FORMAT (YYYY-MM-DD HH:MM:SS)`"
+					},
+					"response": []
+				},
+				{
+					"name": "Campaigns",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"advertiserId\": 2,\n    \"campaignName\": \"John Dear Updated\",\n    \"startDate\": \"2024-02-12\",\n    \"endDate\": \"2024-06-03\",\n    \"impressions\": 100,\n    \"clicks\": 10,\n    \"priority\": 1,\n    \"weight\": 0,\n    \"targetImpressions\": 0,\n    \"targetClicks\": 0,\n    \"targetConversions\": 0,\n    \"revenue\": 0.0,\n    \"revenueType\": 1,\n    \"capping\": 0,\n    \"sessionCapping\": 0,\n    \"block\": 0,\n    \"comments\": \"some comments\",\n    \"viewWindow\": 0,\n    \"clickWindow\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/campaigns/5",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"campaigns",
+								"5"
+							]
+						},
+						"description": "`/campaigns/{campaign-id}`\nUpdate existing campaigns\n\n`campaignName` is mandatory field\n\n`startDate`, `endDate`, `impressions`, `clicks`, `priority`, `weights`, `tragetImpressions`,`targetClicks`, `targetConversions`, `revenue`,`revenueType`, `capping`, `sessionCapping`, `block`, `comments`, `viewWindow`, `clickWindow` are optional fields\n\n`startDate` and `endDate` datetime format `ISO_DATE_FORMAT (YYYY-MM-DD HH:MM:SS)`\n\nif `priority` value is greater than `0` then `tragetClicks` and `targetImpressions` and `targetConversions` cannot be greater than `0`\n\nif `campaign-id` is incorrect or does not exists then it will return `404 Not Found` error."
+					},
+					"response": []
+				},
+				{
+					"name": "Campaigns",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/campaigns/5",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"campaigns",
+								"5"
+							]
+						},
+						"description": "`/campaigns/{campaign-id}`\nDelete existing campaign\n\n`campaign-id` is incorrect or does not exists then API will return `404 Not Found` error"
+					},
+					"response": []
+				},
+				{
+					"name": "Campaigns",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/advertisers/1/campaigns",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"advertisers",
+								"1",
+								"campaigns"
+							]
+						},
+						"description": "`/campaigns/{campaign-id}`\nGet campaign details of existing campaign\n\n`campaign-id` is incorrect or does not exists then API will return `404 Not Found` error"
+					},
+					"response": []
+				},
+				{
+					"name": "Campaign Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "sessionID",
+								"value": "{{SESSION_ID}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/campaigns/5",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"campaigns",
+								"5"
+							]
+						},
+						"description": "`/campaigns/{campaign-id}`\nGet campaign details of existing campaign\n\n`campaign-id` is incorrect or does not exists then API will return `404 Not Found` error"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Set sessionID Header\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var sessionID = jsonData?.data?.sessionID;",
+							"    pm.collectionVariables.set('SESSION_ID', sessionID);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"<admin-username>\",\n    \"password\": \"<admin-password>\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/login",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "`/login`\nLogin to Revive Adserver without login any other operation will be rejected with `401 UnAuthorized` error.\n\n`username` and `password` both are mandatory fields\n\nCorrect username and password will return the `sessionID` which need to be passed in each request with header name sessionID=&lt;session-id&gt; returned by login API."
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionID",
+						"value": "{{SESSION_ID}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{API_URL}}/logout",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"logout"
+					]
+				},
+				"description": "`/logout`\nLogout Revive adserver\n\nPass `sessionID` as header to logout the open session"
+			},
+			"response": []
+		},
+		{
+			"name": "Heartbeat Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}",
+					"host": [
+						"{{API_URL}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://localhost/adserver/www/api/v2/rest",
+			"type": "default"
+		},
+		{
+			"key": "SESSION_ID",
+			"value": "NA",
+			"type": "default"
+		}
+	]
+}

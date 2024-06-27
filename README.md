@@ -15,9 +15,10 @@ It can be different but make sure to configure adserver according to your requir
 `Step 1:` Dowload the rest api source code and copy `rest` dir inside the adserver's `<adserver-dir-name>/www/api/v2/rest` directory
 
 `Step 2:` Go to the adserver's directory and install below packages
-- `composer require slim/slim`
-- `composer require slim/http`
-- `composer require slim/psr7`
+
+    $ composer require slim/slim
+    $ composer require slim/http
+    $ composer require slim/psr7
 
 `Step 3:` Configure nginx server
 ```
@@ -32,7 +33,7 @@ location /<adserver-dir-name>/www/api/v2/rest/ {
 ```
 
 ### API documentation
-[Postman Collection](https://github.com/jatinderaujla/revive-adserver-rest-api/)
+[Postman API Collection](https://github.com/jatinderaujla/revive-adserver-rest-api/tree/main/documentation)
 
 ### API Requests
 

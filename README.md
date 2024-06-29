@@ -86,7 +86,7 @@ curl --location --request POST 'http://<host-name>/adserver/www/api/v2/rest/logi
 Base URL: `http|https://<host-name>/<adserver-dir-name>/www/api/v2/rest`
 
 Default Base Path `/adserver/www/api/v2/rest`
-
+if `root` variable value in nginx.conf server block  is set to `/var/www/html/adserver` then Base path will be `/www/api/v2/rest` and make sure follow below instructions. 
 
 ### How to change base path of Rest API?
 
